@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>student form</title>
+</head>
+<style>
+  
+</style>
+<body>
+    <form>
+      <div class="formData">
+        <label for="name"> <b> Name</b></label>
+        <input type="text" id="name" placeholder="enter your name" required>
+      </div>
+      <br>
+      <div class="formData">
+        <label for="college" ><b> College Name</b></label>
+        <input type="text" id="college" placeholder="enter college name" required>
+      </div>
+      <br>
+      <div id="formData">
+        <label for="age"><b>Age</b></label>
+        <input type="number" id="age" placeholder="enter your age" required>
+      </div>
+      <br>
+      <div class="formData">
+        <label for="xthMarks"> <b> 10th marks</b></label>
+        <input type="number" id="xthMarks" placeholder="enter your 10th marks">
+      </div>
+        <label for=""></label>
+      </div>
+      <br>
+      <div class="formData">
+        <label for="x11thMarks"><b>12th marks</b></label>
+        <input type="number" id="x11Marks" placeholder="enter your 12th marks " required>
+      </div>
+      <br>
+      <div class="formData">
+           <button id="btn">register</button>
+      </div>
+      <div id="msg">
+        <pre></pre>
+      </div>
+    </form>
+  <script>
+    let students = [];
+
+    const addStudent = (eve) =>{
+      eve.preventDefault();
+      let studentDetails = {
+        
+        stdName : document.getElementById('name').value,
+        stdCollege : document.getElementById('college').value,
+        stdAge : document.getElementById('age').value,
+        stdXmarks : document.getElementById('xthMarks').value
+      }
+      students.push(studentDetails);
+      document.querySelector('form').reset();
+    
+      localStorage.setItem('myStudentList', JSON.stringify(students));
+
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.getElementById('btn').addEventListener('click', addStudent);
+      
+    });
+  </script>
+</body>
+</html>
